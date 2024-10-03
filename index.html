@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Storytelling Tarot</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Pirata+One&display=swap" rel="stylesheet">    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="menu">
+        <a class="logo">Mask Of<br>The Oracle</a>
+        <button onclick="LinearTimeline()">Linear Timeline</button>
+        <button onclick="CyclicTimeline()">Cyclic Timeline</button>
+
+    </div>
     <div class="timeline">
         <div id="initial-card" class="branch"></div>
         <div id="branch1" class="branch"></div>

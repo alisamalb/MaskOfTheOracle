@@ -1,5 +1,16 @@
+.logo {
+    font-family: "Pirata One", system-ui;
+    font-size: 40px;
+    font-style: normal;
+    color: white;
+    text-align: center;
+    min-width: 200px;
+}
+
+
+  
 .card {
-    width: 100px; /* Example width */
+    width: 80px; /* Example width */
     height: auto;
     margin: 10px; /* Adds space around the cards */
     border-radius: 5px; /* Optional: adds rounded corners */
@@ -13,9 +24,9 @@
 }
 
 .info {
+    font-family: "EB Garamond";
     background-color: #00000066;
-    max-width: 350px;
-    height: 130px;
+    max-width: 300px;
     margin: 10px; /* Adds space around the cards */
     border-radius: 5px; /* Optional: adds rounded corners */
     box-shadow: 
@@ -24,6 +35,7 @@
     color: white;
     text-align: justify; 
     font-family: 'Arial', sans-serif; 
+    font-size: 12px;
 }
 
 .card-name{
@@ -38,12 +50,62 @@ body {
     radial-gradient(circle at 20% 30%, #052836, transparent 70%),
     radial-gradient(circle at 80% 70%, aquamarine, transparent 70%),
     radial-gradient(circle at 50% 50%, rgb(62, 106, 106), transparent 70%);
-    background-repeat: repeat, no-repeat;
+    background-repeat: repeat;
     background-size: auto, cover; 
+    margin: 10px;
+    padding: 10px;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+
   }
 
-  .branch {
+
+.menu, .timeline {
+    border-radius: 5px;
+}
+
+.menu {
+    background-color: #00000099;
+    width: 15%;
+    padding: 20px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.menu button {
+    background: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 10px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.menu button:hover {
+    /*background: linear-gradient(90deg, #666666, #aaaaaa);*/
+    box-shadow: 
+    0px 0px 50px 10px aquamarine;
+
+    transition: box-shadow 0.3s ease;
+
+}
+
+.timeline {
+    background-color: #00000033;
+    width: 75%;
+    height: 100%;
+    padding: 20px;  
+}
+
+.branch {
+    display: flex;
+    flex-wrap: wrap; 
     justify-content: center; /* Center children horizontally in the flex container */
     align-items: center; /* Center children vertically if needed */
     width: 100%; /* Take full width of the container */

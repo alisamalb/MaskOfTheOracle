@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
             // Convert the object data into an array and shuffle it
             shuffledCards = shuffleArray(Object.values(data));
-            createPage(); // Call createPage now that data is shuffled and ready
+            LinearTimeline(); // Call createPage now that data is shuffled and ready
         })
         .catch(error => console.error('Error fetching data:', error));
 });
@@ -19,19 +19,28 @@ function shuffleArray(array) {
     return array;
 }
 
-function createPage() {
-    console.log(shuffledCards); // Logs the shuffled array of cards
-    loadRandomCards('initial-card', 1);
-    loadRandomCards('branch1', Math.floor(Math.random() * 3) + 1);
-    loadRandomCards('branch2', Math.floor(Math.random() * 3) + 1);
-    loadRandomCards('branch3', 1);
+function LinearTimeline() {
+    let deck = shuffleArray([...shuffledCards]);
+    loadRandomCards('initial-card', 1,deck);
+    loadRandomCards('branch1', 1,deck);
+    loadRandomCards('branch2', 1,deck);
+    loadRandomCards('branch3', 1,deck);
 }
 
-function loadRandomCards(containerId, count) {
+function CyclicTimeline() {
+    let deck = shuffleArray([...shuffledCards]);
+    loadRandomCards('initial-card', 1,deck);
+    loadRandomCards('branch1', 2,deck);
+    loadRandomCards('branch2', 1,deck);
+    const container = document.getElementById('branch3');
+    container.innerHTML=''
+}
+
+function loadRandomCards(containerId, count,deck) {
     const container = document.getElementById(containerId);
     container.innerHTML = ''; // Clear existing content
     for (let i = 0; i < count; i++) {
-        const card = popCard();
+        const card = popCard(deck);
         if (!card) continue; // Skip if no card is returned
 
         const img = document.createElement('img');
@@ -58,10 +67,10 @@ function loadRandomCards(containerId, count) {
     }
 }
 
-function popCard() {
-    if (shuffledCards.length === 0) {
+function popCard(deck) {
+    if (deck.length === 0) {
         console.error('No more cards available');
         return null;
     }
-    return shuffledCards.pop(); // Pop a card from the end of the array
+    return deck.pop(); // Pop a card from the end of the array
 }
